@@ -1,0 +1,25 @@
+<h1>List of books borrowed by</h1>
+{% if books_borrowed %}
+	<table>
+		<ul>
+			<tr>
+				<th width="30%" align="left">TITLE</th>
+				<th width="30%" align="left">AUTHOR</th>
+			</tr>
+			{% for book in books_borrowed %}
+				<tr>
+					<td width="30%">{{ book.title }}</td>
+					<td width="30%">{{ book.author }}</td>
+				</tr>
+			{% endfor %}	
+		</ul>
+	</table>
+{% else %}
+	<p>No books are available.</p>	
+{% endif %}
+
+<a href="{% url 'books' %}">See full list of books.</a><br>
+<a href="{% url 'add_book' %}">Add Book</a><br>
+<a href="{% url 'borrowerslist' %}">Search for the list of books borrowed by a student</a><br>
+<a href="{% url 'overdue' %}">See amount to be paid by overdue and lost books</a><br>
+<a href="{% url 'index' %}">Go back to the homepage.</a><br>

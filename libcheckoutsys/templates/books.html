@@ -1,0 +1,31 @@
+<h1>List of Books</h1>
+{% if book_list %}
+	<ul>
+		<table>
+			<tr>
+				<th width="20%" align="left"> TITLE </th>
+				<th width="15%" align="left"> AUTHOR </th>
+				<th width="10%" align="left"> STATUS </th>
+				<th width="15%" align="left"> BORROWER </th>
+				<th width="10%" align="left"> AMOUNT </th>
+			</tr>
+			{% for book in book_list %}
+			<tr>
+				<td width="20%"> {{ book.title }} </td>
+				<td width="15%"> {{ book.author }} </td>
+				<td width="10%"> {{ book.status }} </td>
+				<td width="15%"> {{ book.borrower }} </td>
+				<td width="10%"> {{ book.amount }} </td>
+			</tr>
+			{% endfor %}
+		</table>
+			
+	</ul>
+{% else %}
+	<p>No books are available.</p>	
+{% endif %}
+
+<a href="{% url 'add_book' %}">Add Book</a><br>
+<a href="{% url 'borrowerslist' %}">Search for the list of books borrowed by a student</a><br>
+<a href="{% url 'overdue' %}">See amount to be paid by overdue and lost books</a><br>
+<a href="{% url 'index' %}">Go back to the homepage.</a><br>

@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	{% block head %}
+    	
+	{% endblock%}
+</head>
+
+<body>
+	<h1 id="index_title"><center>Welcome to the library checkout system homepage</center></h1>
+	<center><a href="/libcheckoutsys/books/">></a></center>
+	{% block content %}
+		
+	{% endblock %}
+</body>

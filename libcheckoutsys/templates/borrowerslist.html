@@ -1,0 +1,16 @@
+<h1>Search books of a student</h1>
+
+{% csrf_token %}
+
+<form action="{% url 'borrowers_list_of_books' %}" method="POST">
+	Name: <input type="text" name="name_textarea"/>
+	<br>
+	<input type="submit" value="Submit">
+</form>
+
+<a href="{% url 'books' %}">See full list of books.</a><br>
+<a href="{% url 'add_book' %}">Add Book</a><br>
+<a href="{% url 'borrowerslist' %}">Search for the list of books borrowed by a student</a><br>
+<a href="{% url 'overdue' %}">See amount to be paid by overdue and lost books</a><br>
+<a href="{% url 'index' %}">Go back to the homepage.</a><br>
+

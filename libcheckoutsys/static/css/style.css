@@ -1,0 +1,13 @@
+body {
+	background: white url("images/background.gif") no-repeat;
+	background-size: cover;
+}
+
+h1, a{
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-top: 10%;
+	font-size: 70px;
+	color: black;
+	background-color: white;
+}
