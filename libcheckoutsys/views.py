@@ -24,9 +24,11 @@ def books(request):
 	return render(request, 'books.html', context)
 
 def overdue(request):
-	overdue_list = Book.objects.filter(status='O').order_by('title')
+	overdue_list = Book.objects.filter(status='Overdue').order_by('title')
+	lost_list = Book.objects.filter(status='Lost').order_by('title')
 	context = {
 		'overdue_list': overdue_list,
+		'lost_list' : lost_list,
 	}
 	return render(request, 'overdue.html', context)
 
@@ -36,7 +38,7 @@ def add_book(request):
 		title = request.POST['title']
 		author = request.POST['author']
 		print title
-		b = Book(title=title, author=author, borrower='', status='B', amount=0)
+		b = Book(title=title, author=author, borrower='', status='On Shelf', amount=0)
 		b.save()
 
 	return render(request, 'add_book.html', context)	

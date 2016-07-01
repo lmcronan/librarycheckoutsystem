@@ -22,6 +22,29 @@
 	<p>No books are available.</p>	
 {% endif %}
 
+<h1>List of Lost Books</h1>
+{% if lost_list %}
+	<table>
+		<ul>
+			<tr>
+				<th width="20%" align="left">TITLE</th>
+				<th width="15%" align="left">AUTHOR</th>
+				<th width="15%" align="left">BORROWER</th>
+				<th width="20%" align="left">AMOUNT TO BE PAID</th>
+			</tr>	
+		{% for book in lost_list %}
+			<tr>
+				<td width="20%">{{ book.title }}</td>
+				<td width="15%">{{ book.author }}</td>
+				<td width="15%">{{ book.borrower }}</td>
+				<td width="20%">{{ book.amount }}</td>
+			</tr>
+		{% endfor %}	
+	</ul>
+</table>
+{% endif %}
+
+<br>
 <a href="{% url 'books' %}">See full list of books.</a><br>
 <a href="{% url 'add_book' %}">Add Book</a><br>
 <a href="{% url 'borrowerslist' %}">Search for the list of books borrowed by a student</a><br>

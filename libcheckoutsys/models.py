@@ -6,12 +6,12 @@ class Book(models.Model):
 	book_id = models.AutoField(primary_key=True)
 	borrower = models.CharField(max_length=200) 
 	STATUS = (
-		('B', 'Borrowed'),
-		('O', 'Overdue'),
-		('L', 'Lost'),
-		('S', 'On Shelf'),
+		('On Shelf', 'On Shelf'),
+		('Borrowed', 'Borrowed'),
+		('Overdue', 'Overdue'),
+		('Lost', 'Lost'),
 	)
-	status = models.CharField(max_length=1, choices=STATUS)
+	status = models.CharField(max_length=10, choices=STATUS)
 	amount = models.IntegerField()
 
 	def __unicode__(self):
